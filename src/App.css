@@ -1,8 +1,3 @@
-body {
-  background-color: var(--secondary-white);
-  color: var(--secondary-dark-gray);
-}
-
 button {
   background-color: var(--primary-teal);
   color: var(--secondary-white);
@@ -13,16 +8,51 @@ button {
 }
 
 .container-grid {
-  height: auto;
+  height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: 240px 1fr;
+  position: relative;
 }
+
 .main {
   box-sizing: border-box;
   height: auto;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
   scroll-behavior: smooth;
   scrollbar-color: transparent transparent;
+  z-index: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 1330px) {
+  .container-grid {
+    grid-template-columns: auto 1fr;
+  }
+
+  .main {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .main {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .container-grid {
+    grid-template-columns: auto 1fr;
+  }
+
+  .main {
+    padding: 5px;
+  }
 }

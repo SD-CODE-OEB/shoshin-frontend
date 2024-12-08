@@ -1,12 +1,18 @@
 import React from "react";
 import "./dashboard.css";
+import PropTypes from "prop-types";
 import graph from "../../assets/vec2.svg";
 import { BiArrowBack, BiChevronDown } from "react-icons/bi";
 import GrayCard from "./GrayCard";
 import ColorCard from "./ColorCard";
-function Dashboard() {
+function Dashboard({ show }) {
+  const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
+  React.useEffect(() => {
+    setScreenWidth(window.innerWidth);
+  }, [setScreenWidth]);
+  console.log(screenWidth, show);
   return (
-    <div className="dashboard-container">
+    <div className={`dashboard-container`}>
       <h1 className="dash-h1">Dashboard</h1>
       <div className="d-content">
         <div className="l-box">
@@ -163,5 +169,8 @@ function Dashboard() {
     </div>
   );
 }
+Dashboard.propTypes = {
+  show: PropTypes.bool.isRequired,
+};
 
 export default Dashboard;

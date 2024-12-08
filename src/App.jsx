@@ -5,12 +5,13 @@ import Menu from "./components/sidebar/Menu";
 import Dashboard from "./components/dashboard/Dashboard";
 
 function App() {
+  const [showMenu, setShowMenu] = React.useState(true);
   return (
     <div className="container-grid">
-      <Menu />
+      <Menu show={showMenu} />
       <div className="main">
-        <Navbar />
-        <Dashboard />
+        <Navbar showMenu={showMenu} setShowMenu={setShowMenu} />
+        <Dashboard show={showMenu} />
       </div>
     </div>
   );

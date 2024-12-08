@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./menu.css";
 import logo from "../../assets/logo.png";
 import { BiCalendar } from "react-icons/bi";
@@ -7,8 +8,9 @@ import { BsPersonAdd } from "react-icons/bs";
 import { IoSettings } from "react-icons/io5";
 import { PiHeadphonesFill } from "react-icons/pi";
 import { FaCircleRadiation, FaPeopleGroup } from "react-icons/fa6";
-const Menu = () => {
-  return (
+
+function Menu({ show }) {
+  return show ? (
     <div className="menu-container">
       <div className="logo-holder">
         <img src={logo} alt="logo" />
@@ -18,24 +20,34 @@ const Menu = () => {
         <h4 className="link-head">Main Menu</h4>
         <ul className="link-group">
           <li className="link active">
-            <MdDashboard className="icon" />
-            <a href="#">Dashboard</a>
+            <a href="#">
+              <MdDashboard className="icon" />
+              <span>Dashboard</span>
+            </a>
           </li>
           <li className="link">
-            <BsPersonAdd className="icon" />
-            <a href="#">Recruitment</a>
+            <a href="#">
+              <BsPersonAdd className="icon" />
+              <span>Recruitment</span>
+            </a>
           </li>
           <li className="link">
-            <BiCalendar className="icon" />
-            <a href="#">Schedule</a>
+            <a href="#">
+              <BiCalendar className="icon" />
+              <span>Schedule</span>
+            </a>
           </li>
           <li className="link">
-            <FaPeopleGroup className="icon" />
-            <a href="#">Employee</a>
+            <a href="#">
+              <FaPeopleGroup className="icon" />
+              <span>Employee</span>
+            </a>
           </li>
           <li className="link">
-            <FaCircleRadiation className="icon" />
-            <a href="#">Department</a>
+            <a href="#">
+              <FaCircleRadiation className="icon" />
+              <span>Department</span>
+            </a>
           </li>
         </ul>
       </div>
@@ -43,17 +55,26 @@ const Menu = () => {
         <h4 className="link-head">Other</h4>
         <ul className="link-group">
           <li className="link">
-            <PiHeadphonesFill className="icon" />
-            <a href="#">Support</a>
+            <a href="#">
+              <PiHeadphonesFill className="icon" />
+              <span>Support</span>
+            </a>
           </li>
           <li className="link">
-            <IoSettings className="icon" />
-            <a href="#">Settings</a>
+            <a href="#">
+              <IoSettings className="icon" />
+              <span>Settings</span>
+            </a>
           </li>
         </ul>
       </div>
     </div>
+  ) : (
+    <></>
   );
+}
+Menu.propTypes = {
+  show: PropTypes.bool.isRequired,
 };
 
 export default Menu;

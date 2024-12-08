@@ -5,9 +5,35 @@ import notification from "../../assets/Vector.svg";
 import chevDown from "../../assets/vec1.svg";
 import profile from "../../assets/profile.png";
 import message from "../../assets/mssg.svg";
-const Navbar = () => {
+import { RxHamburgerMenu } from "react-icons/rx";
+import PropTypes from "prop-types";
+
+const Navbar = ({ showMenu, setShowMenu }) => {
+  const [screenWidth, setScreenWidth] = React.useState(window.innerWidth - 250);
+  React.useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth - 160);
+      if (window.innerWidth < 900) {
+        setScreenWidth(window.innerWidth - 100);
+      }
+      if (window.innerWidth > 1330) {
+        setScreenWidth(window.innerWidth - 240);
+      }
+      if (window.innerWidth < 768) {
+        setShowMenu(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setShowMenu]);
   return (
-    <div className="nav-container">
+    <div
+      className="nav-container"
+      style={showMenu ? { width: screenWidth } : { width: "100%" }}
+    >
+      <button type="button" onClick={() => setShowMenu(!showMenu)}>
+        <RxHamburgerMenu className="ham-icon" />
+      </button>
       <div className="search-box">
         <input type="text" placeholder="Search" />
         <button>
@@ -32,6 +58,10 @@ const Navbar = () => {
       </div>
     </div>
   );
+};
+Navbar.propTypes = {
+  showMenu: PropTypes.bool.isRequired,
+  setShowMenu: PropTypes.func.isRequired,
 };
 
 export default Navbar;
