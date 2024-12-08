@@ -1,0 +1,28 @@
+body {
+  background-color: var(--secondary-white);
+  color: var(--secondary-dark-gray);
+}
+
+button {
+  background-color: var(--primary-teal);
+  color: var(--secondary-white);
+}
+
+.chart-bar {
+  fill: var(--primary-orange);
+}
+
+.container-grid {
+  height: auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+}
+.main {
+  box-sizing: border-box;
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scrollbar-color: transparent transparent;
+}
