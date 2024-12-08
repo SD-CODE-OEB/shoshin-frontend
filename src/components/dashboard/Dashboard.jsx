@@ -1,5 +1,4 @@
-// import React from "react";
-// import "./App.css";
+import React from "react";
 import "./dashboard.css";
 import graph from "../../assets/vec2.svg";
 import { BiArrowBack, BiChevronDown } from "react-icons/bi";

@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 import "./menu.css";
 import logo from "../../assets/logo.png";
 import { BiCalendar } from "react-icons/bi";

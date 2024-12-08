@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import React from "react";
 const ColorCard = ({ bgColor, textColor, Heading, Number, Text }) => {
   return (
     <div className="card" style={{ backgroundColor: bgColor }}>

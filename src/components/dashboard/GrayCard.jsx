@@ -1,4 +1,5 @@
 import "./dashboard.css";
+import React from "react";
 import PropTypes from "prop-types";
 import { MdPushPin } from "react-icons/md";
 import { HiDotsCircleHorizontal } from "react-icons/hi";

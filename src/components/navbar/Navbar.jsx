@@ -1,4 +1,4 @@
-// import React from "react";
+import React from "react";
 import "./nav.css";
 import searchIcon from "../../assets/ic_search.svg";
 import notification from "../../assets/Vector.svg";
